@@ -1,13 +1,18 @@
-<div class="header" *ngIf="flag===true">
-  <label for="username">Имя пользователя:</label>
-  <input type="text" [(ngModel)]="username" id="username">
-  <label for="pass">Пароль:</label>
-  <input type="password" [(ngModel)]="pass" id="pass">
-  <input type="submit" value="login" (click)="login()">
+<div class="header" *ngIf="!auth.isLoggednIn()">
+  <div class="wrapper">
+    <label for="username">Имя пользователя:</label>
+    <input type="text" [(ngModel)]="username" id="username"  required="required">
+    <label for="pass">Пароль:</label>
+    <input type="password" [(ngModel)]="pass" id="pass" required>
+    <input type="submit" value="login" (click)="login()">
+  </div>
 </div>
-<div class="header" *ngIf="flag===false">
-  <a href="#" routerLink="/edit">Create Ad</a>
-  <input type="submit" value="logout" (click)="logout()">
+
+<div class="header" *ngIf="auth.isLoggednIn()">
+  <div class="wrapper">
+    <a href="#" routerLink="/edit">create ad</a>
+    <input type="submit" value="logout" (click)="logout()">
+  </div>
 </div>
 <div id="mainCont">
   <div id="adCont"></div>

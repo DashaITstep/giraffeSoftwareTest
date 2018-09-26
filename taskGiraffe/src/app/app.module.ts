@@ -7,10 +7,13 @@ import { CreateAdComponent } from './create-ad/create-ad.component';
 import { AdDetailsComponent } from './ad-details/ad-details.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {AuthGuard} from "./shared/auth.guard";
+import {AuthService} from "./shared/auth.service";
+import {AdService} from "./shared/ad.service";
 
 const appRoutes: Routes =[
     { path: '', component: HomePageComponent},
-    { path: 'edit', component: CreateAdComponent},
+    { path: 'edit', component: CreateAdComponent, canActivate: [AuthGuard]},
     { path: '$id', component: AdDetailsComponent },
     { path: '**', redirectTo: '/' }
 ];
@@ -25,7 +28,7 @@ const appRoutes: Routes =[
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), FormsModule
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard,AdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

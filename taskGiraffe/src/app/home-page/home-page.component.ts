@@ -1,29 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {AuthService} from "../shared/auth.service";
+import {AdService} from "../shared/ad.service";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit{
 
-  public username = '';
-  public pass = '';
-  public flag = true;
+    constructor(public auth: AuthService, public ads: AdService){};
 
-  ngOnInit() {}
+    public username = '';
+    public pass = '';
+    public allAds = [];
 
-  login(){
-      if(localStorage.getItem(this.username) === null){
-          localStorage.setItem(this.username, this.pass);
-          this.flag = false;
-      }else {
-          if(this.pass !== localStorage.getItem(this.username)) return false;
-          this.flag = false;
-      }
-  }
+    ngOnInit(): void {
+        this.allAds = this.ads.getAllAds();
+    }
+
+    login(){
+        this.auth.sendToken(this.username, this.pass);
+    }
 
     logout() {
-      this.flag = true;
+        this.auth.logout();
     }
 }

@@ -1,3 +1,7 @@
-<p>
-  create-ad works!
-</p>
+<div class="cont">
+  <label for="title">Введите заголовок:</label>
+  <input type="text" id="title" [(ngModel)]="title">
+  <label for="description">Введите описание:</label>
+  <textarea id="description" [(ngModel)]="description"></textarea>
+  <input type="submit" value="добавить" (click)="addNewAd()">
+</div>

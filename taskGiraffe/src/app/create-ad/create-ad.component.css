@@ -1,0 +1,38 @@
+.cont{
+    background: #2f5f88;
+    margin: 30px auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+label{
+    margin-bottom: 10px;
+    color: white;
+    font-size: 20px;
+}
+.cont > input{
+    margin-bottom: 20px;
+    height: 40px;
+}
+.cont > input[type='text']{
+    width: 400px;
+    padding: 10px;
+}
+.cont > textarea{
+    width: 400px;
+    margin-bottom: 20px;
+    height: 400px;
+    resize: none;
+    padding: 10px;
+}
+.cont > input[type='submit']{
+    width: 100px;
+    padding: 5px 15px;
+    background: #ff4f49;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
