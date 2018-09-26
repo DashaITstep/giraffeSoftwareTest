@@ -1,0 +1,14 @@
+<div class="header" *ngIf="flag===true">
+  <label for="username">Имя пользователя:</label>
+  <input type="text" [(ngModel)]="username" id="username">
+  <label for="pass">Пароль:</label>
+  <input type="password" [(ngModel)]="pass" id="pass">
+  <input type="submit" value="login" (click)="login()">
+</div>
+<div class="header" *ngIf="flag===false">
+  <a href="#" routerLink="/edit">Create Ad</a>
+  <input type="submit" value="logout" (click)="logout()">
+</div>
+<div id="mainCont">
+  <div id="adCont"></div>
+</div>
