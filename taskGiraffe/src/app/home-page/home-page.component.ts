@@ -1,4 +1,4 @@
-import {Component, DoCheck, OnInit} from '@angular/core';
+import {Component, DoCheck} from '@angular/core';
 import {AuthService} from "../shared/auth.service";
 import {AdService} from "../shared/ad.service";
 
@@ -7,7 +7,7 @@ import {AdService} from "../shared/ad.service";
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements DoCheck{
 
     constructor(public auth: AuthService, public ads: AdService){};
 
@@ -15,8 +15,10 @@ export class HomePageComponent implements OnInit{
     public pass = '';
     public allAds = [];
 
-    ngOnInit(): void {
-        this.allAds = this.ads.getAllAds();
+    ngDoCheck(): void {
+        if(this.ads.getAllAds() !== null){
+            this.allAds = this.ads.getAllAds();
+        }
     }
 
     login(){
@@ -25,5 +27,9 @@ export class HomePageComponent implements OnInit{
 
     logout() {
         this.auth.logout();
+    }
+
+    deleteAd(id) {
+        this.ads.deleteAdById(id)
     }
 }

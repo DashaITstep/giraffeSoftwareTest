@@ -1,3 +1,14 @@
-<p>
-  ad-details works!
-</p>
+<div id="adCont">
+  <a routerLink="/">Home page</a>
+  <a routerLink="/edit" *ngIf="authService.getActiveUser() !== null">Add one more ad</a>
+  <div class="ad" *ngIf="activeAd !== undefined">
+    <button class="delete" (click)="deleteAd()" *ngIf="activeAd.author === authService.getActiveUser()">X</button>
+    <p class="title">{{activeAd.title}}</p>
+    <p class="description">{{activeAd.description}}</p>
+    <div class="bottomLine">
+      <p>{{activeAd.author}}</p>
+      <p>{{activeAd.date}}</p>
+    </div>
+  </div>
+</div>
+

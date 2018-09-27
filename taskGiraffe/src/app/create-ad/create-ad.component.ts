@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Ad} from "../shared/ad";
 import {AdService} from "../shared/ad.service";
 
@@ -7,7 +7,7 @@ import {AdService} from "../shared/ad.service";
   templateUrl: './create-ad.component.html',
   styleUrls: ['./create-ad.component.css']
 })
-export class CreateAdComponent implements OnInit {
+export class CreateAdComponent {
 
   constructor(public adService: AdService) { }
 
@@ -16,11 +16,11 @@ export class CreateAdComponent implements OnInit {
   public date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
   public author = localStorage.getItem('activeUser');
 
-
-  ngOnInit() {
-  }
-
   addNewAd(){
+    if(this.description === "" || this.title === "") {
+        alert('All fields should be filled!');
+        return false;
+    }
     this.adService.addAd(new Ad(this.title, this.description, this.author, this.date));
   }
 

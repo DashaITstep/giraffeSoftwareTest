@@ -7,7 +7,10 @@ export class AuthService {
 
     sendToken(name: string, pass: string) {
         if(localStorage.getItem(name) === null){
-            if(pass === "" || name === "") return false;
+            if(pass === "" || name === "") {
+                alert('All fields should be filled!');
+                return false;
+            }
             localStorage.setItem(name, pass);
         }else {
             if(pass !== localStorage.getItem(name)) return false;
@@ -15,12 +18,12 @@ export class AuthService {
         localStorage.setItem('activeUser', name);
     }
 
-    getToken() {
+    getActiveUser() {
         return localStorage.getItem('activeUser');
     }
 
     isLoggednIn() {
-        return this.getToken() !== null;
+        return this.getActiveUser() !== null;
     }
 
     logout() {

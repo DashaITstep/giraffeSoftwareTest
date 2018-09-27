@@ -1,0 +1,52 @@
+#adCont{
+    width: 100%;
+    background: #2f5f88;
+    padding: 30px 0;
+}
+#adCont > a{
+    display: inline-block;
+    margin: 0 15px 30px 0;
+    width: 150px;
+    background: white;
+    padding: 5px;
+    color: #ff4f49;
+    font-weight: bold;
+}
+.ad{
+    width: 350px;
+    background: white;
+    min-height: 550px;
+    margin: 0 auto;
+    position: relative;
+}
+.title{
+    background: #ff4f49;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 5px;
+}
+.description{
+    text-align: justify;
+    margin: 8px;
+    min-height: 460px;
+}
+.bottomLine{
+    display: flex;
+    background: #a4a4aa;
+    color: white;
+    justify-content: flex-end;
+    padding: 8px;
+}
+.bottomLine > p{
+    margin-right: 10px;
+}
+.delete{
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+    background: white;
+    padding: 0 3px;
+    cursor: pointer;
+}
