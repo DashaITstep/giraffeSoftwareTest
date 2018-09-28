@@ -14,6 +14,7 @@
     <input type="submit" value="logout" (click)="logout()">
   </div>
 </div>
+
 <div id="adCont">
   <div class="ad" *ngFor="let ad of this.itemsToDisplay; let i = index">
     <button class="delete" (click)="deleteAd(i)" *ngIf="ad.author === auth.getActiveUser()">X</button>

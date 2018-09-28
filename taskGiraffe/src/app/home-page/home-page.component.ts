@@ -20,6 +20,7 @@ export class HomePageComponent implements DoCheck, OnInit{
 
     ngDoCheck(): void {
         this.allAds = this.ads.getAllAds();
+        this.setPage(this.pager.currentPage);
     }
 
     ngOnInit(): void {
@@ -38,7 +39,7 @@ export class HomePageComponent implements DoCheck, OnInit{
     }
 
     deleteAd(id) {
-        this.ads.deleteAdById(id)
+        this.ads.deleteAdById(id);
     }
 
     private setPage(page: number) {

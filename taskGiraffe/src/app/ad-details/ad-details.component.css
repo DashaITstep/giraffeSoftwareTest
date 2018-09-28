@@ -2,13 +2,13 @@
     width: 100%;
     background: #2f5f88;
     padding: 30px 0;
+    min-height: 100vh;
 }
 #adCont > a{
     display: inline-block;
     margin: 0 15px 30px 0;
-    width: 150px;
     background: white;
-    padding: 5px;
+    padding: 10px;
     color: #ff4f49;
     font-weight: bold;
 }
