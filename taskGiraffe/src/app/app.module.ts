@@ -11,6 +11,7 @@ import {AuthGuard} from "./shared/auth.guard";
 import {AuthService} from "./shared/auth.service";
 import {AdService} from "./shared/ad.service";
 import { EditAdComponent } from './edit-ad/edit-ad.component';
+import {PaginationService} from "./shared/pagination.service";
 
 const appRoutes: Routes =[
     { path: '', component: HomePageComponent},
@@ -31,7 +32,7 @@ const appRoutes: Routes =[
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), FormsModule
   ],
-  providers: [AuthService,AuthGuard,AdService],
+  providers: [AuthService,AuthGuard,AdService,PaginationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

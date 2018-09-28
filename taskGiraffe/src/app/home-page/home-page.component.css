@@ -52,6 +52,7 @@ label{
     align-items: center;
     flex-wrap: wrap;
     padding: 20px 0;
+    position: relative;
 }
 .ad{
     width: 250px;
@@ -90,6 +91,16 @@ label{
     font-weight: bold;
     background: white;
     padding: 0 3px;
+    cursor: pointer;
+}
+#pagination{
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    color: white;
+}
+#pagination > li{
+    margin: 0 5px;
     cursor: pointer;
 }
 

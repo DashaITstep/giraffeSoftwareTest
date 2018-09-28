@@ -14,17 +14,26 @@
     <input type="submit" value="logout" (click)="logout()">
   </div>
 </div>
-<div id="mainCont">
-  <div id="adCont">
-    <div class="ad" *ngFor="let ad of this.allAds['ads']; let i = index">
-      <button class="delete" (click)="deleteAd(i)" *ngIf="ad.author === auth.getActiveUser()">X</button>
-      <a class="edit" href="" routerLink="edit/{{i}}" *ngIf="ad.author === auth.getActiveUser()">edit</a>
-      <a class="title" href="" routerLink="ad/{{i}}">{{ad.title}}</a>
-      <p class="description">{{ad.description}}</p>
-      <div class="bottomLine">
-          <p>{{ad.author}}</p>
-          <p>{{ad.date}}</p>
-      </div>
+<div id="adCont">
+  <div class="ad" *ngFor="let ad of this.itemsToDisplay; let i = index">
+    <button class="delete" (click)="deleteAd(i)" *ngIf="ad.author === auth.getActiveUser()">X</button>
+    <a class="edit" href="" routerLink="edit/{{i}}" *ngIf="ad.author === auth.getActiveUser()">edit</a>
+    <a class="title" href="" routerLink="ad/{{i}}">{{ad.title}}</a>
+    <p class="description">{{ad.description}}</p>
+    <div class="bottomLine">
+        <p>{{ad.author}}</p>
+        <p>{{ad.date}}</p>
     </div>
   </div>
+  <ul *ngIf="pager.pages && pager.pages.length" id="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+  </ul>
 </div>
