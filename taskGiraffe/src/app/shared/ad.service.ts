@@ -7,6 +7,10 @@ export class AdService {
 
     public ads = {'ads':[]};
 
+    getAllAds(){
+        return JSON.parse(localStorage.getItem('ads'));
+    }
+
     addAd(ad){
         this.ads.ads = [];
         if (this.getAllAds() !== null){
@@ -19,10 +23,6 @@ export class AdService {
 
         let id = this.getAllAds()['ads'].length-1;
         this.router.navigate(['ad/' + id]);
-    }
-
-    getAllAds(){
-            return JSON.parse(localStorage.getItem('ads'));
     }
 
     deleteAdById(id){

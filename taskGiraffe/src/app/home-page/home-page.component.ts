@@ -31,6 +31,10 @@ export class HomePageComponent implements DoCheck, OnInit{
     }
 
     login(){
+        if(this.pass === "" || this.username === "") {
+            alert('All fields should be filled!');
+            return false;
+        }
         this.auth.sendToken(this.username, this.pass);
     }
 
