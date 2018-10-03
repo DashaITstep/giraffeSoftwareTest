@@ -14,13 +14,15 @@ export class HomePageComponent implements DoCheck, OnInit{
 
     public username = '';
     public pass = '';
-    public allAds = [];
-    public pager = null;
-    public itemsToDisplay = [];
+    public allAds = null;
+    public pager = {};
+    public itemsToDisplay = null;
 
     ngDoCheck(): void {
         this.allAds = this.ads.getAllAds();
-        this.setPage(this.pager.currentPage);
+        if(this.allAds !== null){
+            this.setPage(this.pager.currentPage);
+        }
     }
 
     ngOnInit(): void {

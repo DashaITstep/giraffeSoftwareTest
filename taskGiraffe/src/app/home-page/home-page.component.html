@@ -16,10 +16,10 @@
 </div>
 
 <div id="adCont">
-  <div class="ad" *ngFor="let ad of this.itemsToDisplay; let i = index;">
+  <div class="ad" *ngFor="let ad of itemsToDisplay; let i = index;">
     <button class="delete" (click)="deleteAd(i)" *ngIf="ad.author === auth.getActiveUser()">X</button>
-    <a class="edit" href="" routerLink="edit/{{this.allAds['ads'].indexOf(ad)}}" *ngIf="ad.author === auth.getActiveUser()">edit</a>
-    <a class="title" href="" routerLink="ad/{{this.allAds['ads'].indexOf(ad)}}">{{ad.title}}</a>
+    <a class="edit" href="" routerLink="edit/{{allAds['ads'].indexOf(ad)}}" *ngIf="ad.author === auth.getActiveUser()">edit</a>
+    <a class="title" href="" routerLink="ad/{{allAds['ads'].indexOf(ad)}}">{{ad.title}}</a>
     <p class="description">{{ad.description}}</p>
     <div class="bottomLine">
         <p>{{ad.author}}</p>
