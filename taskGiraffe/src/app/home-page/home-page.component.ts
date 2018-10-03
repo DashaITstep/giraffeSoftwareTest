@@ -45,6 +45,7 @@ export class HomePageComponent implements DoCheck, OnInit{
     }
 
     deleteAd(id) {
+        console.log(id);
         this.ads.deleteAdById(id);
     }
 
