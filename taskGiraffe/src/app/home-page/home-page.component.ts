@@ -15,7 +15,7 @@ export class HomePageComponent implements DoCheck, OnInit{
     public username = '';
     public pass = '';
     public allAds = null;
-    public pager = {};
+    public pager = null;
     public itemsToDisplay = null;
 
     ngDoCheck(): void {
@@ -45,7 +45,6 @@ export class HomePageComponent implements DoCheck, OnInit{
     }
 
     deleteAd(id) {
-        console.log(id);
         this.ads.deleteAdById(id);
     }
 
