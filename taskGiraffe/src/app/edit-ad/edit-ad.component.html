@@ -1,7 +1,7 @@
 <div class="cont">
   <label for="title">Write title:</label>
-  <input type="text" id="title" [(ngModel)]="title">
+  <input type="text" id="title" [(ngModel)]="title" value="{{title}}">
   <label for="description">Write description:</label>
-  <textarea id="description" [(ngModel)]="description"></textarea>
+  <textarea id="description" [(ngModel)]="description" value="{{description}}"></textarea>
   <input type="submit" value="save" (click)="editAd()">
 </div>

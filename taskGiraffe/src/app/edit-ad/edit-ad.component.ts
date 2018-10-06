@@ -17,15 +17,17 @@ export class EditAdComponent implements OnInit{
     public date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
     public author = localStorage.getItem('activeUser');
     public id = this.activateRoute.snapshot.params['id'];
+    public oldData = this.adService.getOldData(this.id);
 
     ngOnInit(): void {
         if(this.adService.getAdById(this.id) === undefined) this.router.navigate(['/']);
+        this.title = this.oldData.title;
+        this.description = this.oldData.description;
     }
 
     editAd(){
-      let oldData = this.adService.getOldData(this.id);
-        if(this.title === "") {this.title = oldData.title;}
-        if(this.description === "") {this.description = oldData.description;}
+        if(this.title === "") {this.title = this.oldData.title;}
+        if(this.description === "") {this.description = this.oldData.description;}
         this.adService.updateAd(this.id,new Ad(this.title, this.description, this.author, this.date));
     }
 
